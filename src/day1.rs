@@ -15,18 +15,13 @@ pub fn solve1(inp: &str) -> i32 {
     let (mut a, mut b) = format_vec(inp);
     a.sort();
     b.sort();
-    a
-        .iter()
-        .zip(b.iter())
-        .fold(0, |acc, (l, r)| acc+(l-r).abs())
+    a.iter().zip(b.iter()).fold(0, |acc, (l, r)| acc+(l-r).abs())
 }
 
 pub fn solve2(inp: &str) -> i32 {
     let (a, b) = format_vec(inp);
       
-    let frequency = b.
-        iter()
-        .fold(HashMap::new(), |mut m, &num| {
+    let frequency = b.iter().fold(HashMap::new(), |mut m, &num| {
         *m.entry(num).or_insert(0) += 1;
         m
     });
